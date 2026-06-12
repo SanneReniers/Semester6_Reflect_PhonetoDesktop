@@ -11,5 +11,18 @@
       <input type="file" name="file" required />
       <button type="submit">Upload</button>
     </form>
+    <p id="status"></p> <!-- Script will fill this in -->
+
+    <script>
+        const form = document.getElementById("upload-form");
+        const button = document.getElementById("submit-btn");
+        const status = document.getElementById("status");
+
+        form.addEventListener("submit", () => { //Runs when the form is submitted 
+            status.textContent = "Uploading...";
+            button.disabled = true; //Prevents the user from double clicking the button
+            button.textContent = "Uploading..."; //Second visual clue
+        });
+    </script>
   </body>
 </html>
