@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- makes sure that it renders correctly on a phone screen -->
+    <title>Reflect - Upload a File</title>
+  </head>
+  <body>
+    <h1>Send a file to your desktop</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data"> <!-- Without this, the files would be send as plain text, which in turn would corrupt the files -->
+      <input type="file" name="file" required />
+      <button type="submit">Upload</button>
+    </form>
+  </body>
+</html>
