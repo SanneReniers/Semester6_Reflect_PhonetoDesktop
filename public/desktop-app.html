@@ -2,54 +2,76 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Reflect - Received Files</title>
+    <title>Reflect - Reflection</title>
   </head>
   <body>
-    <h1>Files from your phone</h1>
+    <header>
+      <h1 class="geist-regular">RUMINOTE</h1>
+      <nav>
+        <div class="dashboard_nav">
+          <img src="./images/house-icon.svg" alt="Icon of a house, outlined">
+          <h3>Dashboard</h3>
+        </div>
+
+        <div class="reflect_nav">
+          <img src="/images/sparklestar_icon.svg" alt="Icon of a sparkling star, outlined">
+          <h3>Reflect</h3>
+        </div>
+
+        <div class="const_nav">
+          <img src="./images/star_icon.svg" alt="Icon of a star, outlined">
+          <h3>Patterns & Constellations</h3>
+        </div>
+      </nav>
+
+      <div class="settings_nav">
+        <img src="./images/settings_icons.svg" alt="Icon of a bell and gear, outlined">
+      </div>
+    </header>
+
+    <h1>What is on your mind today, Iman?</h1>
     <div id="status">Checking for files...</div> <!-- Script will fill this in -->
     <div id="file-list"></div> <!-- Script will fill this in -->
 
     <script>
-      async function refreshFiles() {
-        const res = await fetch("/files");
-        const files = await res.json(); //Returns an array of file names
-        console.log(files);
-        }
-
-      refreshFiles();
-
       function formatBytes(bytes) {
   if (bytes < 1024) return bytes + " B";
   if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
   return (bytes / (1024 * 1024)).toFixed(1) + " MB";
 }
 
-    async function refreshFiles() {
-    const statusEl = document.getElementById("status"); //Grabs references
-    const listEl = document.getElementById("file-list"); //Grabs references
+async function refreshFiles() {
+  const statusEl = document.getElementById("status");
+  const listEl = document.getElementById("file-list");
 
+  try {
     const res = await fetch("/files");
     const files = await res.json();
 
     if (files.length === 0) {
-        listEl.innerHTML = "<p>No files uploaded yet.</p>";
+      listEl.innerHTML = "<p>No files uploaded yet.</p>";
     } else {
-        listEl.innerHTML = files
-        .map(  // Creates a "A" link for each file. The download attribute makes sure that the file gets downloaded instead of opened
-            (f) => `
-            <a href="${f.url}" download> 
-                ${f.name} (${formatBytes(f.size)})
+      listEl.innerHTML = files
+        .map(
+          (f) => `
+            <a href="${f.url}" download>
+              ${f.name} (${formatBytes(f.size)})
             </a><br/>
-            `
+          `
         )
-        .join(""); //Joins the array into one big string
+        .join("");
     }
 
     statusEl.textContent = "Last checked: " + new Date().toLocaleTimeString();
 
-    refreshFiles();
-    setInterval(refreshFiles, 2000); //Makes sure that it refreshes every 2 seconds, as the requirement mentions
+  } catch (err) {
+    statusEl.textContent = "Server unreachable. Is server.js running?";
+  } finally {
+    setTimeout(refreshFiles, 2000);
+  }
 }
+
+refreshFiles();
     </script>
   </body>
 </html>
