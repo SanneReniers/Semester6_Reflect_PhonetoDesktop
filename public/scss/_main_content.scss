@@ -9,7 +9,6 @@ main {
     .main_content {
     display: flex;
     justify-content: center;
-    gap: 100px;
 
     #file-list {
         font-size: 11px;
@@ -57,6 +56,39 @@ main {
 
     .new_reflection {
         font-family: Inter-Medium;
+        width: 30%;
+
+        .buttons_cont {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 5%;
+                width: 100%;
+
+            .button {
+                border: 1px solid var(--outline-grey);
+                border-radius: 10px;
+                padding: 20px;
+                aspect-ratio: 1/1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-family: Geist-Regular;
+                line-height: 1;
+                width: 38%;
+                margin-bottom: 20px;
+                text-align: center;
+
+                img {
+                    width: 30px;
+                }
+
+                h3 {
+                    margin: 10px;
+                }
+            }
+        }
     }
 }
 }
