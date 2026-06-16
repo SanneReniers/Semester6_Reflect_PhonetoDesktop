@@ -1,0 +1,38 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-bottom: 50px;
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        font-family: Inter-Medium;
+        font-size: 11px;
+        color: var(--nonactive_purple);
+
+        .active {
+            color: var(--active_purple);
+            background-color: var(--active_bg_purple);
+        }
+
+        h1 {
+            font-family: Geist-SemiBold;
+            color: black;
+        }
+        
+        div {
+            display: flex;
+            gap: 10px;
+            padding: 0px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+
+            img {
+                width: 20px;
+            }
+        }
+    }
+}

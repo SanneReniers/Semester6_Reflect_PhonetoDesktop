@@ -1,0 +1,104 @@
+@font-face {
+  font-family: Geist-SemiBold; /* set name */
+  src: url(../fonts/Geist-SemiBold.ttf); /* url of the font */
+}
+@font-face {
+  font-family: Inter-Medium; /* set name */
+  src: url(../fonts/Inter_18pt-Medium.ttf); /* url of the font */
+}
+@font-face {
+  font-family: Geist-Regular; /* set name */
+  src: url(../fonts/Geist-Regular.ttf); /* url of the font */
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin-bottom: 50px;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-family: Inter-Medium;
+  font-size: 11px;
+  color: var(--nonactive_purple);
+}
+header nav .active {
+  color: var(--active_purple);
+  background-color: var(--active_bg_purple);
+}
+header nav h1 {
+  font-family: Geist-SemiBold;
+  color: black;
+}
+header nav div {
+  display: flex;
+  gap: 10px;
+  padding: 0px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+header nav div img {
+  width: 20px;
+}
+
+:root {
+  --nonactive_purple: #7B7593;
+  --active_purple: #2C2541;
+  --active_bg_purple: #F3F2F8;
+  --button_purple: #DFDAF8;
+}
+
+main h2 {
+  font-family: Inter-Medium;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+main .main_content {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+main .main_content #file-list {
+  font-size: 11px;
+}
+main .main_content .continue_reflecting {
+  font-family: Inter-Medium;
+  width: 30%;
+}
+main .main_content .continue_reflecting .filter_cont {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+main .main_content .continue_reflecting .filter_cont .filters {
+  background-color: var(--button_purple);
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+main .main_content .continue_reflecting .filter_cont .clear_filters {
+  font-family: Geist-Regular;
+  color: #737373;
+}
+main .main_content .continue_reflecting .filter_cont .filters, main .main_content .continue_reflecting .filter_cont .clear_filters {
+  font-family: Geist-Regular;
+  display: flex;
+  gap: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  align-items: center;
+}
+main .main_content .continue_reflecting .filter_cont .filters img, main .main_content .continue_reflecting .filter_cont .clear_filters img {
+  width: 20px;
+}
+main .main_content .continue_reflecting .filter_cont .filters h3, main .main_content .continue_reflecting .filter_cont .clear_filters h3 {
+  font-size: 13px;
+  margin: 0;
+}
+main .main_content .new_reflection {
+  font-family: Inter-Medium;
+}/*# sourceMappingURL=combined_scss.css.map */

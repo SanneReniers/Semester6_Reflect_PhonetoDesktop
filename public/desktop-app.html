@@ -3,17 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <title>Reflect - Reflection</title>
+    <link rel="stylesheet" href="./combined_scss.css"/>
   </head>
   <body>
     <header>
-      <h1 class="geist-regular">RUMINOTE</h1>
       <nav>
+        <h1>RUMINOTE</h1>
         <div class="dashboard_nav">
           <img src="./images/house-icon.svg" alt="Icon of a house, outlined">
           <h3>Dashboard</h3>
         </div>
 
-        <div class="reflect_nav">
+        <div class="reflect_nav active">
           <img src="/images/sparklestar_icon.svg" alt="Icon of a sparkling star, outlined">
           <h3>Reflect</h3>
         </div>
@@ -29,9 +30,32 @@
       </div>
     </header>
 
-    <h1>What is on your mind today, Iman?</h1>
-    <div id="status">Checking for files...</div> <!-- Script will fill this in -->
-    <div id="file-list"></div> <!-- Script will fill this in -->
+    <main>
+      <h2>What is on your mind today, Iman?</h2>
+
+      <div class="main_content">
+        <div class="continue_reflecting">
+          <h4>Continue Reflecting</h4>
+          <div class="filter_cont">
+            <div class="filters">
+              <img src="./images/Filter_icon.svg" alt="Icon of a filter, outlined">
+              <h3>Filter</h3>
+            </div>
+
+            <div class="clear_filters">
+              <img src="./images/trash_icon.svg" alt="Icon of a trashcan, outlined">
+              <h3>Clear filters</h3>
+            </div>
+          </div>
+
+          <div id="file-list"></div> <!-- Script will fill this in -->
+        </div>
+
+        <div class="new_reflection">
+          <h4>Upload new reflection</h4>
+        </div>
+      </div>
+    </main>
 
     <script>
       function formatBytes(bytes) {

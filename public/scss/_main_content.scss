@@ -1,0 +1,62 @@
+main {
+    h2 {
+        font-family: Inter-Medium;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 70px;
+    }
+
+    .main_content {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+
+    #file-list {
+        font-size: 11px;
+    }
+
+    .continue_reflecting {
+            font-family: Inter-Medium;
+            width: 30%;
+
+    .filter_cont {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 30px;
+
+            .filters {
+                background-color: var(--button_purple);
+                border-radius: 10px;
+                padding: 10px 20px;
+            }
+
+            .clear_filters {
+                font-family: Geist-Regular;
+                color: #737373;
+            }
+
+            .filters, .clear_filters {
+                font-family: Geist-Regular;
+                display: flex;
+                gap: 10px;
+                width: fit-content;
+                cursor: pointer;
+                align-items: center;
+
+                img {
+                    width: 20px;
+                }
+
+                h3 {
+                    font-size: 13px;
+                    margin: 0;
+                }
+            }
+    }
+    }
+
+    .new_reflection {
+        font-family: Inter-Medium;
+    }
+}
+}
