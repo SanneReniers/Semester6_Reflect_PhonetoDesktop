@@ -37,7 +37,7 @@ app.post("/upload", upload.single("file"), (req, res) => {
     return res.status(400).send("No file received."); //Error handling
   }
   console.log(`Received: ${req.file.filename} (${req.file.size} bytes)`);
-  res.send("Upload complete! <a href='/'>Upload another</a>");
+  res.json({ success: true, filename: req.file.filename, message: "Your reflection has been sent" });
 });
 
 //File list route
