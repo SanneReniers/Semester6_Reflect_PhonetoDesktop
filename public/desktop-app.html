@@ -138,6 +138,7 @@ async function refreshFiles() {
         .map(
           (f) => `
             <a href="${f.url}" download>
+              <img src="${getIcon(f.name)}" alt="${f.name}" />
               ${f.name} (${formatBytes(f.size)})
             </a><br/>
           `
@@ -150,6 +151,25 @@ async function refreshFiles() {
   } finally {
     setTimeout(refreshFiles, 2000);
   }
+}
+
+// Returns a certain icon based on the file type.
+
+function getIcon(filename) {
+  const ext = filename.split(".").pop().toLowerCase(); //Splits the filename up into the name and the type. Pop grabs the last element (the extension). Changes everything to lowercase. 
+  const icons = {
+    jpg: "./images/pdf_icon.svg",
+    jpeg: "./images/pdf_icon.svg",
+    png: "./images/pdf_icon.svg",
+    pdf: "./images/pdf_icon.svg",
+    mp3: "./images/mp4_icon.svg",
+    mp4: "./images/mp4_icon.svg",
+    mov: "./images/mp4_icon.svg",
+    m4a: "./images/mp4_icon.svg",
+    txt: "./images/document_icon.svg",
+    zip: "./images/document_icon.svg",
+  };
+  return icons[ext] || "./images/document_icon.svg"; // fallback for unknown types
 }
 
 refreshFiles();
