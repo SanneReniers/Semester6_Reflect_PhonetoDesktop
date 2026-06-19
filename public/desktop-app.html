@@ -137,10 +137,16 @@ async function refreshFiles() {
       listEl.innerHTML = files
         .map(
           (f) => `
-            <a href="${f.url}" download>
-              <img src="${getIcon(f.name)}" alt="${f.name}" />
-              ${f.name} (${formatBytes(f.size)})
-            </a><br/>
+          <div class="file-entry">
+            <img src="${getIcon(f.name)}" alt="${f.name}" />
+              <div class="file-info">
+                <a href="${f.url}" download>
+                  ${f.name}
+                </a>
+                <span class="upload-time">${new Date(f.uploadedAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
+                <br/>
+              </div>
+          </div>
           `
         )
         .join("");

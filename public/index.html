@@ -16,8 +16,9 @@
     <h2>Upload a reflection</h2>
     <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data"> <!-- Without this, the files would be send as plain text, which in turn would corrupt the files -->
       <label for="file-input" class="file-button">Choose file</label>
-      <input type="file" name="file" id="file-input" required />
+      <input type="file" name="file" id="file-input"/>
       <span id="file-name">No file chosen</span> <!-- Script will fill this in -->
+      <input type="text" id="custom-name" placeholder="Custom name (optional)" />
       <button id="submit-btn" type="submit">Upload</button>
     </form>
     <p id="status"></p> <!-- Script will fill this in -->
@@ -27,10 +28,17 @@
         const button = document.getElementById("submit-btn");
         const status = document.getElementById("status");
 
-        form.addEventListener("submit", async (event) => {
-  event.preventDefault(); // stops the browser from navigating away
+    form.addEventListener("submit", async (event) => {
+    event.preventDefault(); // stops the browser from navigating away
+
+  if (!document.getElementById("file-input").files[0]) {
+    status.textContent = "Please choose a file first.";
+    return;
+  }
 
   const formData = new FormData(form); // packages the form's file into a format fetch can send
+  const customName = document.getElementById("custom-name").value;
+  formData.append("customName", customName); // adds it to the request
   
   status.textContent = "Uploading...";
   button.disabled = true;

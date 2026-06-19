@@ -31,14 +31,27 @@ const upload = multer({ storage }); //Configured instance of multer
 app.use(express.static(path.join(__dirname, "public"))); //Any file in public gets served directly to the IP
 app.use("/uploads", express.static(UPLOAD_DIR)); //Let's the desktop page offer download links to the uploaded files
 
-//The upload route
+//Add a custom name to a file
+
 app.post("/upload", upload.single("file"), (req, res) => {
   if (!req.file) {
-    return res.status(400).send("No file received."); //Error handling
+    return res.status(400).json({ error: "No file received." });
   }
-  console.log(`Received: ${req.file.filename} (${req.file.size} bytes)`);
-  res.json({ success: true, filename: req.file.filename, message: "Your reflection has been sent" });
+
+  const customName = req.body.customName?.trim();
+  const ext = path.extname(req.file.originalname); // Keeps the same type as the original file name had. 
+  const finalName = customName
+    ? `${Date.now()}-${customName}${ext}`
+    : req.file.filename;
+
+  if (customName) {
+    fs.renameSync(req.file.path, path.join(UPLOAD_DIR, finalName));
+  }
+
+  console.log(`Received: ${finalName} (${req.file.size} bytes)`);
+  res.json({ success: true, filename: finalName });
 });
+
 
 //File list route
 app.get("/files", (req, res) => {

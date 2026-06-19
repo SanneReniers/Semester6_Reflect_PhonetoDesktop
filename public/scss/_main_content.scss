@@ -52,6 +52,33 @@ main {
                 }
             }
     }
+
+    #file-list {
+
+            .file-entry {
+                display: flex;
+                align-items: flex-start;
+                flex-direction: row;
+                gap: 10px;
+                margin-bottom: 20px;
+
+                .file-info {
+                    display: flex;
+                    flex-direction: column;
+                    
+                    a {
+                        font-size: 17px;
+                        color: var(--active_purple)!important;
+                        text-decoration: none;
+                        font-weight: 500;
+                    }
+
+                    .upload-time {
+                        color: var(--nonactive_purple);
+                    }
+                }
+            }
+        }
     }
 
     .new_reflection {

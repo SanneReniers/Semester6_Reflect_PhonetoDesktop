@@ -13,4 +13,8 @@ form {
     input {
         display: none;
     }
+
+    input[type="text"] {
+        display: block!important;
+    }
 }
