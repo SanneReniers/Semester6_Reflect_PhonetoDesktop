@@ -70,7 +70,7 @@
               <h3>Text</h3>
             </div>
 
-            <div class="button">
+            <div class="button qr-code">
               <img src="./images/qrcode_icon.svg" alt="Icon of a qr code, outlined">
               <h3>Upload from mobile</h3>
             </div>
@@ -79,17 +79,45 @@
       </div>
     </main>
 
-    <div class="pop-up_qr">
-      <div class="pop-up_content">
+    <div class="overlay">
+    </div>
+
+    <div class="pop-upqr">
+        <h4 class="close">X</h4>
         <div class="content">
           <h3>Upload from mobile device</h3>
           <p>Scan the QR code below to upload a reflection from your phone.</p>
-          <img src="./images/qr_code.svg" alt="QR code to upload a reflection from your phone">
+          <img src="./images/qr-code.png" alt="QR code to upload a reflection from your phone">
         </div>
-        <p>X</p>
-      </div>
+    </div>
 
     <script>
+      //Button -> Pop-up
+      function showToast() {
+        const pop_up = document.querySelector(".pop-upqr");
+        const overlay = document.querySelector(".overlay");
+
+      pop_up.style.display = "block";
+      overlay.style.display = "block";
+
+        console.log("pop_up:");
+        console.log("overlay:");
+    }
+
+    document.querySelector(".button.qr-code").addEventListener("click", showToast);
+
+    //Pop-up -> Gone
+    function closeToast() {
+        const pop_up = document.querySelector(".pop-upqr");
+        const overlay = document.querySelector(".overlay");
+
+      pop_up.style.display = "none";
+      overlay.style.display = "none";
+    }
+
+    document.querySelector(".close").addEventListener("click", closeToast);
+
+      //Phone->desktop functionality
       function formatBytes(bytes) {
   if (bytes < 1024) return bytes + " B";
   if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
@@ -97,7 +125,6 @@
 }
 
 async function refreshFiles() {
-  const statusEl = document.getElementById("status");
   const listEl = document.getElementById("file-list");
 
   try {
@@ -117,8 +144,6 @@ async function refreshFiles() {
         )
         .join("");
     }
-
-    statusEl.textContent = "Last checked: " + new Date().toLocaleTimeString();
 
   } catch (err) {
     statusEl.textContent = "Server unreachable. Is server.js running?";

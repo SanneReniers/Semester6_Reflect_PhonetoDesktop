@@ -1,0 +1,16 @@
+
+h2 {
+    font-family: Inter-Medium;
+    font-size: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    input {
+        display: none;
+    }
+}

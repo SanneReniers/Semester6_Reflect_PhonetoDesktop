@@ -130,4 +130,59 @@ main .main_content .new_reflection .buttons_cont .button img {
 }
 main .main_content .new_reflection .buttons_cont .button h3 {
   margin: 10px;
+}
+
+.pop-upqr {
+  font-family: Geist-Regular;
+  background-color: white;
+  color: var(--active_purple);
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1/1;
+  padding: 50px;
+  display: none;
+  border-radius: 20px;
+}
+.pop-upqr img {
+  width: 30%;
+}
+.pop-upqr h4 {
+  text-align: end;
+  font-size: 22px;
+  cursor: pointer;
+}
+.pop-upqr h3 {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.qr-code {
+  cursor: pointer;
+}
+
+h2 {
+  font-family: Inter-Medium;
+  font-size: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+form input {
+  display: none;
 }/*# sourceMappingURL=combined_scss.css.map */
