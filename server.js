@@ -20,9 +20,9 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const safeName = file.originalname.replace(/[/\\?%*:|"<>]/g, "_"); // Replaces unsafe characters from the name it had on the phone
-    cb(null, `${Date.now()}-${safeName}`); // No error, here's the value. Date.now is used in order to give every file a diffrent name.
+    cb(null, `${safeName}`); // No error, here's the value. Date.now is used in order to give every file a diffrent name.
   },
-});
+})
 
 const upload = multer({ storage }); //Configured instance of multer
 
@@ -41,7 +41,7 @@ app.post("/upload", upload.single("file"), (req, res) => {
   const customName = req.body.customName?.trim();
   const ext = path.extname(req.file.originalname); // Keeps the same type as the original file name had. 
   const finalName = customName
-    ? `${Date.now()}-${customName}${ext}`
+    ? `${customName}${ext}`
     : req.file.filename;
 
   if (customName) {

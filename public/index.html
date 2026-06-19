@@ -48,6 +48,10 @@
     const res = await fetch("/upload", { method: "POST", body: formData });
     const data = await res.json();
 
+    // Error handling and feedback to the user
+
+    fs.existsSync(path.join(UPLOAD_DIR, finalName)); // Makes sure that the server checks if the file already exists
+
     if (data.success) {
       status.textContent = "Your reflection has been uploaded successfully!";
       button.disabled = false;
@@ -59,7 +63,7 @@
       button.textContent = "Upload";
     }
   } catch (err) {
-    status.textContent = "Upload failed. Is the server running?";
+    status.textContent = "Upload failed. Please use a different name";
     button.disabled = false;
     button.textContent = "Upload";
   }
