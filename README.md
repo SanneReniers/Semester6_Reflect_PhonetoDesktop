@@ -29,7 +29,7 @@
   <p align="center">
     A lightweight phone-to-desktop file upload feature, where scanning a QR code lets users upload a file from their phone that instantly appears in the desktop app.
     <br />
-    <a href="https://github.com/SanneReniers/Semester6_Reflect_PhonetoDesktop/blob/main/Screen%20Recording%202026-06-19%20at%2017.16.16.mov">View Demo</a>
+    <a href="https://github.com/SanneReniers/Semester6_Reflect_PhonetoDesktop/blob/main/RReadMe%20Files%20/Demo%20%20Screen%20to%20desktop%20function">View Demo</a>
   </p>
 </div>
 
@@ -62,7 +62,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/SanneReniers/Semester6_Reflect_PhonetoDesktop/blob/main/RReadMe%20Files%20/Screenshot%20desktop%20view%20-%20ReadMe)
 
 This project was a group assignment in which six of us worked to redesign the reflection flow of Reflect, an existing web application built to support student reflection at Fontys. Our goal was to make the tool more effective and easier to use for ICT & Media Design students, while keeping changes to the existing design as minimal as possible. Over the course of the semester we conducted user research, ran multiple rounds of stakeholder feedback, built and tested low-fidelity prototypes, and validated our final direction through an A/B test with ten participants. I personally focused on the onboarding and dashboard parts of the app, alongside building a small phone-to-desktop file upload feature for the reflection capture flow.
 
