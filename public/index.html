@@ -15,9 +15,11 @@
 
     <h2>Upload a reflection</h2>
     <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data"> <!-- Without this, the files would be send as plain text, which in turn would corrupt the files -->
-      <label for="file-input" class="file-button">Choose file</label>
-      <input type="file" name="file" id="file-input"/>
-      <span id="file-name">No file chosen</span> <!-- Script will fill this in -->
+      <div class="file-input-container">
+        <label for="file-input" class="file-button">Choose file</label>
+        <input type="file" name="file" id="file-input"/>
+        <span id="file-name">No file chosen</span> <!-- Script will fill this in -->
+      </div>
       <input type="text" id="custom-name" placeholder="Custom name (optional)" />
       <button id="submit-btn" type="submit">Upload</button>
     </form>
@@ -46,16 +48,20 @@
 
   try {
     const res = await fetch("/upload", { method: "POST", body: formData });
+    console.log("res.status:", res.status);
     const data = await res.json();
+    console.log("data:", data);
 
     // Error handling and feedback to the user
 
-    fs.existsSync(path.join(UPLOAD_DIR, finalName)); // Makes sure that the server checks if the file already exists
-
     if (data.success) {
+      console.log("inside success block");
       status.textContent = "Your reflection has been uploaded successfully!";
+      console.log("status updated");
       button.disabled = false;
+      console.log("button re-enabled");
       button.textContent = "Upload";
+      console.log("button text updated");
       
     } else {
       status.textContent = `Error: ${data.error}`;

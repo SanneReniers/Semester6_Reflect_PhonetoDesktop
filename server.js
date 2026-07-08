@@ -40,9 +40,12 @@ app.post("/upload", upload.single("file"), (req, res) => {
 
   const customName = req.body.customName?.trim();
   const ext = path.extname(req.file.originalname); // Keeps the same type as the original file name had. 
-  const finalName = customName
-    ? `${customName}${ext}`
-    : req.file.filename;
+  const finalName = customName ? `${customName}${ext}` : req.file.filename;
+
+  if (customName && fs.existsSync(path.join(UPLOAD_DIR, finalName))) {
+    fs.unlinkSync(req.file.path); // delete the temp file multer saved
+    return res.status(400).json({ error: "This name is already in use, choose a different one." });
+  }
 
   if (customName) {
     fs.renameSync(req.file.path, path.join(UPLOAD_DIR, finalName));
