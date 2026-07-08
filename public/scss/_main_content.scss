@@ -1,6 +1,6 @@
 main {
     h2 {
-        font-family: Inter-Medium;
+        font-family: "Inter-Medium";
         display: flex;
         justify-content: center;
         margin-bottom: 70px;
@@ -15,7 +15,7 @@ main {
     }
 
     .continue_reflecting {
-            font-family: Inter-Medium;
+            font-family: "Inter-Medium";
             width: 30%;
 
     .filter_cont {
@@ -30,12 +30,12 @@ main {
             }
 
             .clear_filters {
-                font-family: Geist-Regular;
+                font-family: "Geist-Regular";
                 color: #737373;
             }
 
             .filters, .clear_filters {
-                font-family: Geist-Regular;
+                font-family: "Geist-Regular";
                 display: flex;
                 gap: 10px;
                 width: fit-content;
@@ -82,7 +82,7 @@ main {
     }
 
     .new_reflection {
-        font-family: Inter-Medium;
+        font-family: "Inter-Medium";
         width: 30%;
 
         .buttons_cont {
@@ -101,7 +101,7 @@ main {
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                font-family: Geist-Regular;
+                font-family: "Geist-Regular";
                 line-height: 1;
                 width: 38%;
                 margin-bottom: 20px;
